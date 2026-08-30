@@ -76,6 +76,89 @@
     });
   }
 
+  // Carousel (Galería)
+  var carousel = document.getElementById("carousel");
+  if (carousel) {
+    var track = document.getElementById("carouselTrack");
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsWrap = document.getElementById("carouselDots");
+    var prevBtn = document.getElementById("carouselPrev");
+    var nextBtn = document.getElementById("carouselNext");
+    var index = 0;
+    var autoplayId = null;
+    var AUTOPLAY_MS = 5500;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", "Ir a la imagen " + (i + 1));
+      dot.addEventListener("click", function () {
+        goTo(i);
+        restartAutoplay();
+      });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    function render() {
+      track.style.transform = "translateX(-" + index * 100 + "%)";
+      dots.forEach(function (d, i) {
+        d.classList.toggle("is-active", i === index);
+        d.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      render();
+    }
+
+    function next() { goTo(index + 1); }
+    function prevSlide() { goTo(index - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayId = window.setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      if (autoplayId) { window.clearInterval(autoplayId); autoplayId = null; }
+    }
+    function restartAutoplay() { startAutoplay(); }
+
+    prevBtn.addEventListener("click", function () { prevSlide(); restartAutoplay(); });
+    nextBtn.addEventListener("click", function () { next(); restartAutoplay(); });
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+
+    carousel.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { next(); restartAutoplay(); }
+      if (e.key === "ArrowLeft") { prevSlide(); restartAutoplay(); }
+    });
+
+    // Touch / pointer swipe
+    var dragStartX = null;
+    track.addEventListener("pointerdown", function (e) {
+      dragStartX = e.clientX;
+      stopAutoplay();
+    });
+    track.addEventListener("pointerup", function (e) {
+      if (dragStartX === null) return;
+      var delta = e.clientX - dragStartX;
+      if (Math.abs(delta) > 40) {
+        delta < 0 ? next() : prevSlide();
+      }
+      dragStartX = null;
+      startAutoplay();
+    });
+
+    render();
+    startAutoplay();
+  }
+
   // Contact form -> mailto
   var contactForm = document.getElementById("contactForm");
   var CONTACT_EMAIL = "grupoecologicogarzon@hotmail.com";

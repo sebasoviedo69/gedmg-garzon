@@ -158,11 +158,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--primary-dark);
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(217, 164, 65, 0.18), transparent 60%),
-    radial-gradient(900px 500px at -10% 10%, rgba(31, 122, 61, 0.16), transparent 55%),
-    linear-gradient(180deg, #f2f8f0 0%, var(--bg) 100%);
+    radial-gradient(1100px 500px at 85% -10%, rgba(217, 164, 65, 0.16), transparent 60%),
+    linear-gradient(180deg, rgba(11, 31, 18, 0.82) 0%, rgba(11, 31, 18, 0.72) 55%, rgba(11, 31, 18, 0.88) 100%);
 }
 .hero__inner {
   padding: 90px 24px 70px;
@@ -170,7 +177,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .eyebrow {
   display: inline-block;
-  color: var(--primary);
+  color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -179,11 +186,12 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .hero h1 {
   font-size: clamp(2.1rem, 5vw, 3.4rem);
-  color: var(--primary-dark);
+  color: var(--white);
 }
 .hero__lead {
   font-size: 1.08rem;
   max-width: 620px;
+  color: rgba(255, 255, 255, 0.86);
 }
 .hero__actions {
   display: flex;
@@ -206,8 +214,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .btn--primary { background: var(--primary); color: var(--white); }
 .btn--primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
-.btn--ghost { border-color: var(--primary); color: var(--primary-dark); }
-.btn--ghost:hover { background: var(--primary-light); }
+.btn--ghost { border-color: rgba(255, 255, 255, 0.6); color: var(--white); }
+.btn--ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--white); }
 .btn--block { width: 100%; }
 
 .stats {
@@ -326,6 +334,87 @@ ul { list-style: none; margin: 0; padding: 0; }
 .work-card__icon svg { width: 24px; height: 24px; }
 .work-card h3 { color: var(--primary-dark); font-size: 1.08rem; }
 .work-card p { font-size: 0.94rem; margin-bottom: 0; }
+
+/* ===================== Carousel ===================== */
+.carousel {
+  position: relative;
+  margin-top: 44px;
+}
+.carousel__viewport {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  aspect-ratio: 16 / 9;
+  background: var(--border);
+}
+.carousel__track {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.carousel__slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+.carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 5;
+}
+.carousel__arrow svg { width: 22px; height: 22px; }
+.carousel__arrow:hover { background: var(--white); transform: translateY(-50%) scale(1.06); }
+.carousel__arrow--prev { left: 14px; }
+.carousel__arrow--next { right: 14px; }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+.carousel__dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.carousel__dots button:hover { background: var(--primary-light); }
+.carousel__dots button.is-active {
+  background: var(--primary);
+  transform: scale(1.25);
+}
+
+@media (max-width: 600px) {
+  .carousel__viewport { aspect-ratio: 4 / 5; }
+  .carousel__arrow { width: 38px; height: 38px; }
+  .carousel__arrow svg { width: 18px; height: 18px; }
+}
 
 /* ===================== Contact ===================== */
 .contact-grid {

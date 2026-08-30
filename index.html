@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GEDMG · Grupo Ecológico del Municipio de Garzón</title>
 <meta name="description" content="Grupo Ecológico del Municipio de Garzón (GEDMG). Una estrategia de conservación desde 1978, protegiendo los recursos naturales del Huila.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -36,6 +41,7 @@
       <a href="#historia" class="nav__link">Historia</a>
       <a href="#mision-vision" class="nav__link">Misión y Visión</a>
       <a href="#trabajo" class="nav__link">Nuestro Trabajo</a>
+      <a href="#galeria" class="nav__link">Galería</a>
       <a href="#contacto" class="nav__link nav__link--cta">Contáctanos</a>
     </nav>
 
@@ -49,7 +55,8 @@
 
   <!-- ===================== INICIO ===================== -->
   <section class="hero" id="inicio">
-    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__bg" style="background-image:url('assets/hero-bg.jpg')" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container hero__inner">
       <p class="eyebrow reveal">Desde 1978 · Garzón, Huila</p>
       <h1 class="reveal">Una estrategia de conservación</h1>
@@ -252,8 +259,52 @@
     </div>
   </section>
 
+  <!-- ===================== GALERIA ===================== -->
+  <section class="section section--alt" id="galeria">
+    <div class="container">
+      <p class="eyebrow reveal">Galería</p>
+      <h2 class="section__title reveal">Nuestro territorio en imágenes</h2>
+      <p class="section__lead reveal">
+        Fauna, paisajes y jornadas de trabajo que hacen parte de la memoria visual
+        del Grupo Ecológico del Municipio de Garzón.
+      </p>
+
+      <div class="carousel reveal" id="carousel" role="region" aria-roledescription="carrusel" aria-label="Galería de fotos de GEDMG">
+        <div class="carousel__viewport">
+          <ul class="carousel__track" id="carouselTrack">
+            <li class="carousel__slide"><img src="assets/gallery/gallery-01.jpg" alt="Fauna silvestre en su hábitat natural" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-02.jpg" alt="Atardecer sobre el paisaje del municipio" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-03.jpg" alt="Cielo al anochecer en zona rural de Garzón" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-04.jpg" alt="Perezoso observado durante una jornada de conservación" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-05.jpg" alt="Miembros del grupo en actividad institucional" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-06.jpg" alt="Ave nativa registrada en labores de monitoreo" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-07.jpg" alt="Aves tucán en su entorno natural" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-08.jpg" alt="Ave de colores propia de la región" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-09.jpg" alt="Jornada de campo por senderos naturales" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-10.jpg" alt="Perezoso en la copa de un árbol" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-11.jpg" alt="Jornada de educación ambiental con estudiantes" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-12.jpg" alt="Fauna registrada en zona de conservación" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-13.jpg" alt="Actividad comunitaria con niños del municipio" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-14.jpg" alt="Encuentro comunitario del grupo ecológico" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-15.jpg" alt="Hongo silvestre fotografiado en campo" loading="lazy"></li>
+            <li class="carousel__slide"><img src="assets/gallery/gallery-16.jpg" alt="Vegetación de páramo en el territorio de Garzón" loading="lazy"></li>
+          </ul>
+        </div>
+
+        <button type="button" class="carousel__arrow carousel__arrow--prev" id="carouselPrev" aria-label="Imagen anterior">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m15 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="carousel__arrow carousel__arrow--next" id="carouselNext" aria-label="Imagen siguiente">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Seleccionar imagen"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CONTACTANOS ===================== -->
-  <section class="section section--alt" id="contacto">
+  <section class="section" id="contacto">
     <div class="container">
       <p class="eyebrow reveal">Hablemos</p>
       <h2 class="section__title reveal">Contáctanos</h2>
@@ -348,6 +399,7 @@
       <a href="#historia">Historia</a>
       <a href="#mision-vision">Misión y Visión</a>
       <a href="#trabajo">Nuestro Trabajo</a>
+      <a href="#galeria">Galería</a>
       <a href="#contacto">Contáctanos</a>
     </nav>
     <p class="footer__copy">© <span id="year"></span> Grupo Ecológico del Municipio de Garzón — Una estrategia de conservación.</p>
