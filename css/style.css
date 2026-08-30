@@ -265,7 +265,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-right: -50vw;
   margin-top: 36px;
   overflow: hidden;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 16 / 9;
 }
 .section-media img {
   width: 100%;
