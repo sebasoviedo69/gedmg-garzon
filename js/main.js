@@ -159,6 +159,22 @@
     startAutoplay();
   }
 
+  // Video cards (click-to-load YouTube embed)
+  var videoFrames = Array.prototype.slice.call(document.querySelectorAll(".video-card__frame"));
+  videoFrames.forEach(function (frame) {
+    frame.addEventListener("click", function () {
+      var videoId = frame.getAttribute("data-youtube-id");
+      if (!videoId || videoId.indexOf("VIDEO_ID") === 0) return;
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(videoId) + "?autoplay=1&rel=0";
+      iframe.title = "Reproductor de video de YouTube";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      frame.innerHTML = "";
+      frame.appendChild(iframe);
+    });
+  });
+
   // Contact form -> mailto
   var contactForm = document.getElementById("contactForm");
   var CONTACT_EMAIL = "grupoecologicogarzon@hotmail.com";
