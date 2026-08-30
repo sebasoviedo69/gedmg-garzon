@@ -89,19 +89,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   align-items: center;
   gap: 10px;
 }
-.brand__icon {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: var(--primary-light);
-  color: var(--primary);
+.brand__logo {
+  height: 52px;
+  width: auto;
+  display: block;
 }
-.brand__icon svg { width: 22px; height: 22px; }
-.brand__text { display: flex; flex-direction: column; line-height: 1.15; }
-.brand__text strong { font-family: var(--font-head); font-size: 1.05rem; color: var(--primary-dark); }
-.brand__text small { font-size: 0.72rem; color: var(--muted); }
 
 .nav {
   display: flex;
@@ -589,9 +581,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   justify-content: space-between;
   align-items: center;
 }
-.brand--footer .brand__icon { background: rgba(255,255,255,0.1); color: var(--accent); }
-.brand--footer .brand__text strong { color: var(--white); }
-.brand--footer .brand__text small { color: rgba(255,255,255,0.65); }
+.brand__logo--footer { height: 64px; }
 .footer__links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem; }
 .footer__links a:hover { color: var(--accent); }
 .footer__copy {
