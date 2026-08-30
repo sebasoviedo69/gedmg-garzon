@@ -76,23 +76,24 @@
     });
   }
 
-  // Carousel (Galería)
-  var carousel = document.getElementById("carousel");
-  if (carousel) {
-    var track = document.getElementById("carouselTrack");
+  // Carousels (Galería, Videos)
+  function initCarousel(rootId, trackId, dotsId, prevId, nextId, autoplayMs) {
+    var carousel = document.getElementById(rootId);
+    if (!carousel) return;
+
+    var track = document.getElementById(trackId);
     var slides = Array.prototype.slice.call(track.children);
-    var dotsWrap = document.getElementById("carouselDots");
-    var prevBtn = document.getElementById("carouselPrev");
-    var nextBtn = document.getElementById("carouselNext");
+    var dotsWrap = document.getElementById(dotsId);
+    var prevBtn = document.getElementById(prevId);
+    var nextBtn = document.getElementById(nextId);
     var index = 0;
     var autoplayId = null;
-    var AUTOPLAY_MS = 5500;
 
     slides.forEach(function (_, i) {
       var dot = document.createElement("button");
       dot.type = "button";
       dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", "Ir a la imagen " + (i + 1));
+      dot.setAttribute("aria-label", "Ir al elemento " + (i + 1));
       dot.addEventListener("click", function () {
         goTo(i);
         restartAutoplay();
@@ -119,7 +120,7 @@
 
     function startAutoplay() {
       stopAutoplay();
-      autoplayId = window.setInterval(next, AUTOPLAY_MS);
+      if (autoplayMs) autoplayId = window.setInterval(next, autoplayMs);
     }
     function stopAutoplay() {
       if (autoplayId) { window.clearInterval(autoplayId); autoplayId = null; }
@@ -158,6 +159,9 @@
     render();
     startAutoplay();
   }
+
+  initCarousel("carousel", "carouselTrack", "carouselDots", "carouselPrev", "carouselNext", 5500);
+  initCarousel("videoCarousel", "videoCarouselTrack", "videoCarouselDots", "videoCarouselPrev", "videoCarouselNext", 0);
 
   // Video cards (click-to-load YouTube embed)
   var videoFrames = Array.prototype.slice.call(document.querySelectorAll(".video-card__frame"));

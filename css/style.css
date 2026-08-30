@@ -257,16 +257,24 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* ===================== Section media ===================== */
 .section-media {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-top: 36px;
-  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow);
   aspect-ratio: 21 / 9;
 }
 .section-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .section-media { aspect-ratio: 4 / 3; }
 }
 
 /* ===================== Timeline ===================== */
@@ -397,6 +405,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .carousel__slide {
+  position: relative;
   flex: 0 0 100%;
   height: 100%;
 }
@@ -458,19 +467,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 /* ===================== Videos ===================== */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 44px;
-}
-.video-card { margin: 0; }
 .video-card__frame {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  position: absolute;
+  inset: 0;
   background: var(--ink);
   cursor: pointer;
 }
@@ -493,29 +492,31 @@ ul { list-style: none; margin: 0; padding: 0; }
   position: absolute;
   inset: 0;
   margin: auto;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
   transition: transform 0.2s ease;
+  z-index: 2;
 }
-.video-card__play svg { width: 100%; height: 100%; }
+.video-card__play svg { width: 100%; height: 100%; filter: drop-shadow(var(--shadow)); }
 .video-card__frame:hover .video-card__play { transform: scale(1.08); }
-.video-card figcaption {
-  margin-top: 12px;
-  font-size: 0.92rem;
-  color: var(--muted);
-  text-align: center;
+.video-card__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 32px 22px 16px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.98rem;
 }
-.video-grid__note {
+.videos-note {
   margin-top: 28px;
   text-align: center;
-}
-
-@media (max-width: 900px) {
-  .video-grid { grid-template-columns: 1fr; }
 }
 
 /* ===================== Contact ===================== */

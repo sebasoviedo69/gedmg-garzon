@@ -340,41 +340,49 @@
         de conservación en Garzón.
       </p>
 
-      <div class="video-grid">
-        <!-- TODO: reemplazar VIDEO_ID_1 con el ID real del video de YouTube (https://www.youtube.com/watch?v=VIDEO_ID) -->
-        <figure class="video-card reveal">
-          <div class="video-card__frame" data-youtube-id="VIDEO_ID_1">
-            <img class="video-card__poster" src="assets/gallery/gallery-09.jpg" alt="" loading="lazy">
-            <button type="button" class="video-card__play" aria-label="Reproducir video">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
-            </button>
-          </div>
-          <figcaption>Jornada de campo por los senderos de Garzón</figcaption>
-        </figure>
+      <div class="carousel reveal" id="videoCarousel" role="region" aria-roledescription="carrusel" aria-label="Carrusel de videos de GEDMG">
+        <div class="carousel__viewport">
+          <ul class="carousel__track" id="videoCarouselTrack">
+            <li class="carousel__slide">
+              <div class="video-card__frame" data-youtube-id="u-AgSKg5WHc">
+                <img class="video-card__poster" src="assets/videos/poster-01.jpg" alt="" loading="lazy">
+                <button type="button" class="video-card__play" aria-label="Reproducir video">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
+                </button>
+                <div class="video-card__caption">40 años del Grupo Ecológico de Garzón</div>
+              </div>
+            </li>
+            <li class="carousel__slide">
+              <div class="video-card__frame" data-youtube-id="sco_-blrMe0">
+                <img class="video-card__poster" src="assets/videos/poster-02.jpg" alt="" loading="lazy">
+                <button type="button" class="video-card__play" aria-label="Reproducir video">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
+                </button>
+                <div class="video-card__caption">40 años del Grupo Ecológico del municipio de Garzón (CAM Huila)</div>
+              </div>
+            </li>
+            <li class="carousel__slide">
+              <div class="video-card__frame" data-youtube-id="t23tUZOFzGM">
+                <img class="video-card__poster" src="assets/videos/poster-03.jpg" alt="" loading="lazy">
+                <button type="button" class="video-card__play" aria-label="Reproducir video">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
+                </button>
+                <div class="video-card__caption">Expedición al Cerro Páramo de Miraflores (CAM Huila)</div>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-        <!-- TODO: reemplazar VIDEO_ID_2 con el ID real del video de YouTube -->
-        <figure class="video-card reveal">
-          <div class="video-card__frame" data-youtube-id="VIDEO_ID_2">
-            <img class="video-card__poster" src="assets/gallery/gallery-04.jpg" alt="" loading="lazy">
-            <button type="button" class="video-card__play" aria-label="Reproducir video">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
-            </button>
-          </div>
-          <figcaption>Fauna silvestre en su hábitat natural</figcaption>
-        </figure>
+        <button type="button" class="carousel__arrow carousel__arrow--prev" id="videoCarouselPrev" aria-label="Video anterior">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m15 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="carousel__arrow carousel__arrow--next" id="videoCarouselNext" aria-label="Video siguiente">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m9 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
 
-        <!-- TODO: reemplazar VIDEO_ID_3 con el ID real del video de YouTube -->
-        <figure class="video-card reveal">
-          <div class="video-card__frame" data-youtube-id="VIDEO_ID_3">
-            <img class="video-card__poster" src="assets/gallery/gallery-13.jpg" alt="" loading="lazy">
-            <button type="button" class="video-card__play" aria-label="Reproducir video">
-              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.92)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="#14532d"/></svg>
-            </button>
-          </div>
-          <figcaption>Jornada de sensibilización ambiental con la comunidad</figcaption>
-        </figure>
+        <div class="carousel__dots" id="videoCarouselDots" role="tablist" aria-label="Seleccionar video"></div>
       </div>
-      <p class="form-note video-grid__note">
+      <p class="form-note videos-note">
         Próximamente más videos. Si tienes grabaciones o material audiovisual de las
         actividades del grupo, cuéntanos en la sección de contacto para publicarlo aquí.
       </p>
